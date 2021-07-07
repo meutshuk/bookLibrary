@@ -1,4 +1,4 @@
-.display {
+.displayArea {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
@@ -18,7 +18,7 @@
   height: 271px;
   width: 400px;
   position: absolute;
-  /* display: none; */
+  display: none;
   /* background-color: rgba(0, 0, 0, 0.4);  */
 }
 

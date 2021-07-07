@@ -1,43 +1,64 @@
 books = [
-  // {
-  //   title: "Hello Utshuk Darling",
-  //   author: "Utshuk Darling",
-  //   pages: 69,
-  //   read: "Read",
-  // },
-  // {
-  //   title: "How to",
-  //   author: "Hero Bro Utshuk",
-  //   pages: 69,
-  //   read: "Not Read",
-  // },
+  {
+    title: "Hello Utshuk Darling",
+    author: "Utshuk Darling",
+    pages: 69,
+    read: "Read",
+  },
+  {
+    title: "How to",
+    author: "Hero Bro Utshuk",
+    pages: 69,
+    read: "Not Read",
+  },
 ];
+const displayArea = document.querySelector(".displayArea");
 
-let addBookForm = document.querySelector(".addBookForm");
+const addBookForm = document.querySelector(".addBookForm");
 
-author = addBookForm.querySelector("#author");
-title = addBookForm.querySelector("#title");
-page = document.querySelector("#page");
-read = document.querySelector("#read");
-notRead = document.querySelector("#notRead");
+let addBookBtn = document.querySelector(".addBookBtn");
+addBookBtn.addEventListener("click", () => {
+  if (addBookBtn.innerText == "Add Books") {
+    addBookForm.style.display = "block";
+    addBookBtn.innerText = "Close";
+  } else {
+    addBookForm.style.display = "";
+    addBookBtn.innerText = "Add Books";
+  }
+});
 
-submitBtn = document
-  .querySelector("#submitBtn")
-  .addEventListener("click", addBookToLibrary);
+const author = addBookForm.querySelector("#author");
+const title = addBookForm.querySelector("#title");
+const page = document.querySelector("#page");
+const read = document.querySelector("#read");
+const notRead = document.querySelector("#notRead");
 
+const submitBtn = document.querySelector("#submitBtn");
+submitBtn.addEventListener("click", addBookToLibrary);
 
+class Book {
+  constructor(title, author, page, read) {
+    this.title = title;
+    this.author = author;
+    this.page = page;
+    this.read = read;
+  }
+}
 
-function Book(title, author, page, read) {
-  this.title = title;
-  this.author = author;
-  this.page = page;
-  this.read = read;
+function display(books) {
+  books.forEach(eachBook => {
+    
+  })
 }
 
 function addBookToLibrary() {
   let ifRead = read.checked ? read.value : notRead.value;
   let NewBook = new Book(title.value, author.value, page.value, ifRead);
   books.push(NewBook);
+
+  author.value = "";
+  title.value = "";
+  page.value = "";
 }
 
-console.log('apple')
+display(books)
