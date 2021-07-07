@@ -2,13 +2,13 @@ books = [
   {
     title: "Hello Utshuk Darling",
     author: "Utshuk Darling",
-    pages: 69,
+    page: "69",
     read: "Read",
   },
   {
     title: "How to",
     author: "Hero Bro Utshuk",
-    pages: 69,
+    page: "69",
     read: "Not Read",
   },
 ];
@@ -46,9 +46,23 @@ class Book {
 }
 
 function display(books) {
-  books.forEach(eachBook => {
+  displayArea.innerText = "";
+  books.forEach((eachBook) => {
+    let htmlCode = `
     
-  })
+      <h3>${eachBook.title}</h3>
+      <h3>${eachBook.author}</h3>
+      <h3>${eachBook.page}</h3>
+      <button>${eachBook.read}</button>
+      <button>Remove</button>
+
+    `;
+
+    div = document.createElement("div");
+    div.className = "gridBlock";
+    div.innerHTML = htmlCode;
+    displayArea.appendChild(div);
+  });
 }
 
 function addBookToLibrary() {
@@ -59,6 +73,7 @@ function addBookToLibrary() {
   author.value = "";
   title.value = "";
   page.value = "";
+  display(books);
 }
 
-display(books)
+display(books);
