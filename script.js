@@ -2,13 +2,13 @@ books = [
   {
     title: "Hello Utshuk Darling",
     author: "Utshuk Darling",
-    page: "69",
+    page: 69,
     read: "Read",
   },
   {
     title: "How to",
     author: "Hero Bro Utshuk",
-    page: "69",
+    page: 69,
     read: "Not Read",
   },
 ];
@@ -46,23 +46,51 @@ class Book {
 }
 
 function display(books) {
-  displayArea.innerText = "";
-  books.forEach((eachBook) => {
-    let htmlCode = `
-    
-      <h3>${eachBook.title}</h3>
-      <h3>${eachBook.author}</h3>
-      <h3>${eachBook.page}</h3>
-      <button>${eachBook.read}</button>
-      <button>Remove</button>
+  displayArea.innerHTML = "";
+  books.forEach((book) => {
+    let cardDiv = document.createElement("div");
+    let authorH3 = document.createElement("h3");
+    let titleH3 = document.createElement("h3");
+    let pageH3 = document.createElement("h3");
+    let readBtn = document.createElement("button");
+    let removeBtn = document.createElement("button");
 
-    `;
+    //cardDiv.innerText = "";
 
-    div = document.createElement("div");
-    div.className = "gridBlock";
-    div.innerHTML = htmlCode;
-    displayArea.appendChild(div);
+    removeBtn.className = "removeBtn";
+    cardDiv.classList = "eachGrid";
+
+    authorH3.innerText = book.author;
+    titleH3.innerText = book.title;
+    pageH3.innerText = book.page;
+    readBtn.innerText = book.read;
+
+    readBtn.className = book.read == "Read" ? "readBook" : "didntReadBook";
+
+    removeBtn.innerText = "Remove";
+
+    cardDiv.appendChild(titleH3);
+    cardDiv.appendChild(authorH3);
+    cardDiv.appendChild(pageH3);
+    cardDiv.appendChild(readBtn);
+    cardDiv.appendChild(removeBtn);
+
+    displayArea.appendChild(cardDiv);
+
+    readBtn.addEventListener("click", (e) => {
+      readBtn.className = book.read == "Read" ? "didntReadBook" : "readBook";
+      readBtn.innerText = book.read == "Read" ? "Not Read" : "Read";
+    });
+
+    removeButton = document.querySelectorAll(".removeBtn");
+    removeButton.forEach((btn) => btn.addEventListener("click", removeItem));
   });
+}
+
+function removeItem(e) {
+  console.log(e);
+  books = books.filter((book) => book.title !== e.path[1].firstChild.innerText);
+  display(books);
 }
 
 function addBookToLibrary() {

@@ -34,10 +34,18 @@ input {
   padding: 10px;
   margin: 10px;
 }
-.gridBlock{
+.gridBlock {
   border: solid 2px;
   border-radius: 10px;
   margin: 10px;
   padding: 5px;
   height: 250px;
+}
+
+.readBook {
+  background-color: cadetblue;
+}
+
+.didntReadBook {
+  background-color: maroon;
 }
