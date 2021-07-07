@@ -45,9 +45,9 @@ class Book {
   }
 }
 
-function display(books) {
+function display(boooks) {
   displayArea.innerHTML = "";
-  books.forEach((book) => {
+  boooks.forEach((book) => {
     let cardDiv = document.createElement("div");
     let authorH3 = document.createElement("h3");
     let titleH3 = document.createElement("h3");
@@ -78,8 +78,16 @@ function display(books) {
     displayArea.appendChild(cardDiv);
 
     readBtn.addEventListener("click", (e) => {
-      readBtn.className = book.read == "Read" ? "didntReadBook" : "readBook";
-      readBtn.innerText = book.read == "Read" ? "Not Read" : "Read";
+      books.forEach((a) => {
+        if (a.title == e.path[1].firstChild.innerText) {
+          a.read = a.read == "Read" ? "Not Read" : "Read";
+        }
+      });
+
+      readBtn.className =
+        readBtn.innerText == "Read" ? "didntReadBook" : "readBook";
+      display(books);
+      //readBtn.innerText = readBtn.innerText == "Read" ? "Not Read" : "Read";
     });
 
     removeButton = document.querySelectorAll(".removeBtn");
@@ -88,7 +96,6 @@ function display(books) {
 }
 
 function removeItem(e) {
-  console.log(e);
   books = books.filter((book) => book.title !== e.path[1].firstChild.innerText);
   display(books);
 }
@@ -101,6 +108,7 @@ function addBookToLibrary() {
   author.value = "";
   title.value = "";
   page.value = "";
+  addBookForm.style.display = "";
   display(books);
 }
 
