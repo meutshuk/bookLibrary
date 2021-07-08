@@ -25,6 +25,8 @@ addBookBtn.addEventListener("click", () => {
     addBookForm.style.display = "";
     addBookBtn.innerText = "Add Books";
   }
+  addBookBtn.innerText =
+    addBookForm.style.display == "block" ? "Close" : "Add Books";
 });
 
 const author = addBookForm.querySelector("#author");
