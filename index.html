@@ -7,6 +7,7 @@
     <header><h2>Library</h2></header>
 
     <main>
+      <div class="container"></div>
       <div><button class="addBookBtn">Add Books</button></div>
       <div class="addBookForm">
         <form>
@@ -15,6 +16,7 @@
             id="author"
             name="author"
             placeholder="Author Name"
+            
           /><br />
 
           <input
@@ -22,6 +24,7 @@
             id="title"
             name="title"
             placeholder="Title"
+            
           /><br />
 
           <input
@@ -32,24 +35,29 @@
           />
 
           <br />
-          
-            <input type="radio" id="read" name="readValue" value="Read" checked/><label for="read">
-              Read The Book</label
-            >
-            <input type="radio" id="notRead" name="readValue" value="Not Read" /><label
-              for="read"
-            >
-              Didnt Read The Book</label
-            >
-          
+
+          <input
+            type="radio"
+            id="read"
+            name="readValue"
+            value="Read"
+            checked
+          /><label for="read"> Read The Book</label>
+          <input
+            type="radio"
+            id="notRead"
+            name="readValue"
+            value="Not Read"
+          /><label for="read"> Didnt Read The Book</label>
+
           <br />
           <!-- <input id="read" type="checkbox" name="read" value="read" />
           <label for="read"> Read the Book? </label><br /> -->
           <input id="submitBtn" type="Button" value="Submit" />
         </form>
       </div>
-      <div class="displayArea">
-
+      
+        <div class="displayArea"></div>
       </div>
     </main>
   </body>

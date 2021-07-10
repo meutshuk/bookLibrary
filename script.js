@@ -27,6 +27,8 @@ addBookBtn.addEventListener("click", () => {
   }
   addBookBtn.innerText =
     addBookForm.style.display == "block" ? "Close" : "Add Books";
+  // addBookBtn.innerText =
+  // addBookForm.style.display == "" ? "Add Books" : "Close";
 });
 
 const author = addBookForm.querySelector("#author");
@@ -111,6 +113,9 @@ function addBookToLibrary() {
   title.value = "";
   page.value = "";
   addBookForm.style.display = "";
+
+  addBookBtn.innerText =
+    addBookForm.style.display == "" ? "Add Books" : "Close";
   display(books);
 }
 

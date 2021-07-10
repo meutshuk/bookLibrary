@@ -1,21 +1,41 @@
 .displayArea {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, 300px);
+}
+
+body {
+  background-color: burlywood;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  /* width: 130px; */
+  border: none;
+  background-color: orange;
+  padding: 15px;
+  font-size: 19px;
+  color: white;
+  margin: 5px;
+  border-radius: 5px;
 }
 
 .eachGrid {
   display: grid;
   margin: 2px;
-  border: 1px solid;
+  border: 2px solid;
   border-radius: 10px;
-  padding: 0px 0px 10px 10px;
+  padding: 10px 10px;
   flex-direction: column;
   align-items: center;
+  background-color: aliceblue;
 }
 
-.eachGrid>h3{
+.eachGrid > h3 {
   align-items: center;
-  
 }
 
 .addBookForm {
@@ -28,11 +48,13 @@
 }
 
 form {
-  background-color: #fefefe;
+  background-color: rgba(211, 211, 211, 0.9);
   /* margin: auto; */
   padding: 20px;
   border: 1px solid #888;
   width: 100%;
+  border-radius: 10px;
+  /* opacity: 0.91; */
 }
 
 input {
@@ -54,3 +76,16 @@ input {
 .didntReadBook {
   background-color: maroon;
 }
+
+.container {
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.addBookBtn {
+  width: 130px;
+  background-color:midnightblue
+}
+
+/* grid-template-columns: repeat(auto-fill, 400px); */
